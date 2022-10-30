@@ -1,0 +1,104 @@
+{
+    "DatosGenerales": [
+        {
+            "name": "Fiestas",
+            "Fecha": "10-12-2022",
+            "Hora": "20:00",
+            "CantidadPersonas": 100,
+            "Alimentos": [
+                "Carne asada",
+                "Pollo Asado",
+                "Ensalada",
+                "Refresco Natural"
+            ]
+        },
+        {
+            "name": "Fiestas",
+            "Fecha": "10-09-2023",
+            "Hora": "20:00",
+            "CantidadPersonas": 100,
+            "Alimentos": [
+                "Carne asada",
+                "Pollo Asado",
+                "Ensalada",
+                "Refresco Natural"
+            ]
+        }
+    ],
+    "DatosLugar": [
+        {
+            "name": "Salon Almendares",
+            "Ciudad": "Siguatepeque",
+            "Direccion": "Colonia San Miguel, frente a casa grande",
+            "CantidadPersonas": 500,
+            "Dueño": "Maximiliano Thomsonp",
+            "Espacio": "100m x 150m"
+        },
+        {
+            "name": "Alma Lenca",
+            "Ciudad": "Marcala",
+            "Direccion": "Calle Principal, frente a gasolinera La texaco",
+            "CantidadPersonas": 100,
+            "Dueño": "Victor Vásquez",
+            "Espacio": "50m x 100m"
+        }
+    ],
+    "DatosEquipo": [
+        {
+            "name": "Rommel Portillo",
+            "edad": "25",
+            "fechaNacimiento": "6/12/2000",
+            "telefono": 99685746,
+            "direccion": "San Jose, La Paz, calle principal"
+        },
+        {
+            "name": "Telma Umaña",
+            "edad": "19",
+            "fechaNacimiento": "20/10/1999",
+            "telefono": 99982625,
+            "direccion": "Comayagua, comayagua"
+        }
+    ],
+    "DatosCliente": [
+        {
+            "name": "Enma Argueta",
+            "edad": "32",
+            "fechaNacimiento": "01/11/1996",
+            "telefono": 32093918,
+            "direccion": "El paraiso"
+        },
+        {
+            "name": "Jeff Mendez",
+            "edad": "21",
+            "fechaNacimiento": "10/01/2000",
+            "telefono": 323492919,
+            "direccion": "Siguatepeque, comayagua El Parnazo"
+        }
+    ],
+    "DatosFinancieros": [
+        {
+            "CostoDeAlimentos": 10000,
+            "CostoDelSalon": 45000,
+            "CostoDeLasSillas": 2500,
+            "CostoDeLasMesas": 23000,
+            "Decoracion": 5000
+        },
+        {
+            "CostoDeAlimentos": 20000,
+            "CostoDelSalon": 35000,
+            "CostoDeLasSillas": 2900,
+            "CostoDeLasMesas": 27000,
+            "Decoracion": 7000
+        }
+    ],
+    "ComentariosAnotaciones": [
+        {
+            "Comentario": "El cliente entrego 2 sillas quebradas",
+            "Anotaciones": "Faltan 5 sillas"
+        },
+        {
+            "Comentario": "El cliente entrego todo el moviliario en excelente estado",
+            "Anotaciones": "El cliente pago todo despues de la fiesta"
+        }
+    ]
+}

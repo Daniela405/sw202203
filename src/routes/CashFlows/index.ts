@@ -3,7 +3,7 @@ import { ICashFlow, CashFlow } from '@libs/CashFlow';
 import { commonValidator, validateInput } from '@server/utils/validator';
 
 const router = Router();
-const cashFlowInstance = new CashFlow();
+const cashFlowInstance = new CashFlow("SQLITE");
 
 router.get('/', async (_req, res)=>{
   try {

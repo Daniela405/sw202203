@@ -1,8 +1,8 @@
-import { IUsers } from "../entities/Users";
+import { IUser } from "../entities/Users";
 import { AbstractDao } from "./AbstractDao";
 import sqlite from 'sqlite';
 
-export class UserDao extends AbstractDao<IUsers> {
+export class UserDao extends AbstractDao<IUser> {
   public constructor(db:sqlite.Database){
     super('USER', db as sqlite.Database );
     super.exec('CREATE TABLE IF NOT EXISTS USER ('
@@ -15,7 +15,7 @@ export class UserDao extends AbstractDao<IUsers> {
   public async getUsers() {
     return super.findAll()
   }
-  public async getUserById( identifier : Partial<IUsers> ){
+  public async getUserById( identifier : Partial<IUser> ){
     try{
       const result = await super.findByID(identifier);
       return result;
@@ -25,7 +25,7 @@ export class UserDao extends AbstractDao<IUsers> {
     }
   }
 
-  public async insertNewUser( newUser: IUsers) {
+  public async insertNewUser( newUser: IUser) {
     try {
       const result = await super.createOne(newUser);
       return result;
@@ -35,7 +35,7 @@ export class UserDao extends AbstractDao<IUsers> {
     }
   }
 
-  public async updateNewUser( updateUser: IUsers) {
+  public async updateNewUser( updateUser: IUser) {
     try {
       const {_id, ...updateObject} = updateUser;
       const result = await super.update({_id}, updateObject);
@@ -46,7 +46,7 @@ export class UserDao extends AbstractDao<IUsers> {
     }
   }
 
-  public async deleteUser( deleteUser: Partial<IUsers>) {
+  public async deleteUser( deleteUser: Partial<IUser>) {
     try {
       const {_id } = deleteUser;
       const result = await super.delete({_id});

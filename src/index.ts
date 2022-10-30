@@ -12,7 +12,13 @@ moduleAlias.addAliases({
       "@dao": `${srcPath}/dao`
 });
 
+//todo el programa que tome todo lo que esta en env y lo incluya en las variables de entorno de
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import { createServer } from '@config/express';
+import { initMongo } from '@config/mongo';
+
 import { AddressInfo } from 'net';
 import http from 'http';
 
@@ -42,4 +48,6 @@ const startServer = async () => {
   });
 };
 
-startServer();
+initMongo(
+  startServer
+  );

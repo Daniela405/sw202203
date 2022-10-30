@@ -1,35 +1,32 @@
-import { getConnection } from "@models/sqlite/SqliteConn";
-import { UserDao } from "@models/sqlite/UsersDao";
-export interface IUsers {
-     correo: string;
-     name: string;
-     user: string;
-     password: string;
-};
-export class User {
-  private dao: UserDao;
+import { getConnection } from "@models/mongodb/MongoDBConn";
+import { UsersDao  } from "@models/mongodb/UsersDao";
+import {getPassword/*, checkPassword */} from "@utils/crypto";
+
+export class Users {
+  private dao: UsersDao;
   public constructor(){
     getConnection()
       .then(conn=>{
-        this.dao = new UserDao(conn);
+        this.dao = new UsersDao(conn);
       })
       .catch(ex=>console.error(ex));
   }
-  // Consultas
-  public getAllUser() {
-    return this.dao.getUsers()
-  }
-  public getUserByIndex( index:number) {
-      return this.dao.getUserById({_id:index});
+  public signin(name: string, email:string, password: string){
+    const newUser = {
+      name,
+      email,
+      password: getPassword(password),
+      status: 'ACT',
+      oldPasswords: [] as string[],
+      created: new Date(),
+      updated: new Date(),
+      avatar:'',
+      _id: null
+    };
+    return this.dao.createUser(newUser);
   }
 
-  public addUser( user:IUsers) {
-    return this.dao.insertNewUser(user);
-  }
-  public updateUser( index:number, user:IUsers){
-   return this.dao.update({_id:index}, user);
-  }
-  public deleteUser( index:number) {
-    return this.dao.deleteUser({_id:index});
+  public login(_email: string, _password: string) {
+    
   }
 }
