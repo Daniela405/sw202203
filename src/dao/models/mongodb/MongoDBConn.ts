@@ -1,6 +1,3 @@
-
-
-
 import { MongoClient } from 'mongodb';
 
 let connection:MongoClient = null;

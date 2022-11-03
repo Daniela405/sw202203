@@ -1,6 +1,6 @@
 import { ICashFlow } from "../entities/CashFlow";
 import { AbstractDao } from "./AbstractDao";
-import {Db} from "mongodb";
+import {Db, ObjectId} from "mongodb";
 
 export class CashFlowDao extends AbstractDao<ICashFlow> {
   public constructor(db: Db) {
@@ -9,6 +9,10 @@ export class CashFlowDao extends AbstractDao<ICashFlow> {
   public getClashFlows() {
     return super.findAll()
   }
+  public getCashFlowByUser(id:string){
+    return super.findByFilter({userId: new ObjectId(id)},{sort:{'type': -1}});
+  }
+
   public async getClashFlowById( identifier : string ){
     try{
       const result = await super.findByID(identifier);
@@ -19,9 +23,10 @@ export class CashFlowDao extends AbstractDao<ICashFlow> {
     }
   }
 
-  public async insertNewCashFlow( newCashFlow: ICashFlow) {
+  public async insertNewCashFlow( newCashFlow: ICashFlow, userId: string) {
     try {
       const {_id, ...newObject} = newCashFlow;
+      newObject.userId = new ObjectId(userId);
       const result = await super.createOne(newObject);
       return result;
     } catch( ex: unknown) {
@@ -41,9 +46,9 @@ export class CashFlowDao extends AbstractDao<ICashFlow> {
     }
   }
 
-  public async getCountCashFlow() {
+  public async getCountCashFlow(userId:string) {
     try {
-      return await super.getCollection().countDocuments({});
+      return await super.getCollection().countDocuments({userId: new ObjectId(userId)});
     } catch( ex: unknown) {
       console.log("CashFlowDao mongodb:", (ex as Error).message);
       throw ex;
