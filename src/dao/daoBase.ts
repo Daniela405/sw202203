@@ -1,4 +1,3 @@
-//definir la base estructural
 export interface IDaoObject {
   findAll: Function;
   findByID: Function;
